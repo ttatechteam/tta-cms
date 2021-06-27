@@ -1,0 +1,73 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sermons",
+  "info": {
+    "name": "Sermon",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Topic": {
+      "type": "string",
+      "required": true,
+      "maxLength": 200
+    },
+    "Message": {
+      "type": "richtext",
+      "required": true
+    },
+    "Preacher": {
+      "type": "string",
+      "required": true,
+      "maxLength": 200
+    },
+    "Image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "BibleTexts": {
+      "type": "string",
+      "required": false,
+      "maxLength": 200
+    },
+    "HasAudio": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "Audio": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "HasVideo": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "Video": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    }
+  }
+}

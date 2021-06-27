@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "media_files",
+  "info": {
+    "name": "Media File",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Category": {
+      "type": "enumeration",
+      "enum": [
+        "Events",
+        "Church",
+        "Missions"
+      ],
+      "required": true
+    },
+    "Image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true
+    },
+    "Title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 40
+    }
+  }
+}
